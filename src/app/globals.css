@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  color-scheme: light;
+}
+::selection {
+  background: rgba(16, 185, 129, 0.22);
+}

@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+
+    "buildstatic": "cross-env STATIC_EXPORT=true next build",
+
+    "predeploy": "npm run buildstatic && node -e \"const fs=require('fs'); fs.mkdirSync('out',{recursive:true}); fs.closeSync(fs.openSync('out/.nojekyll','w'));\"",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "next": "16.1.1",
@@ -19,8 +24,10 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
